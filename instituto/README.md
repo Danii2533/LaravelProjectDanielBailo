@@ -27,5 +27,5 @@ npm install concurrenly
 ## Uso currently para crear un script local
 Ejecuta docker Compose para levantar contenedores y ejecuta el script dev para vite
 ````Bash
-"local": "docker compose up -d && concurrently \"npm run dev\" \"php artisan serve\""
+"local": "docker compose up -d && concurrently \"npm run dev\" \"php artisan serve\" && concurrently \"php artisan serve --port=8003\" "
 ````

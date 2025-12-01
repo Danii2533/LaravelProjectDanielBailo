@@ -14,6 +14,7 @@
 
     <x-layouts.header/>
 
+
 <nav class="bg-nav h-nav">
     estoy en nav aquí boton
 
@@ -21,9 +22,6 @@
 <main class="bg-main h-main" >
     {{$slot}}
 </main>
-<footer class="h-footer bg-footer">
-    estoy en footer
-</footer>
-
+    <x-layouts.footer/>
 </body>
 </html>
