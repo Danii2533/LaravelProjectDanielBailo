@@ -3,7 +3,7 @@ Esta es una practica para el modulo de servidor
 ## Instalo breeze
 para instalar ejecuto el comando
 ````Bash
-composer require "laravel/breeze"
+composer requiere "laravel/breeze"
 ````
 
 ## Instalo Daisy
