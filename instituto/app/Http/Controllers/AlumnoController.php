@@ -17,7 +17,7 @@ class AlumnoController extends Controller
         //
         $alumno = Alumno::all();
         $campos = Schema::getColumnListing("alumnos");
-        return view ("alumnos.listado",["alumnos"=>$alumno, "campos"=>$campos]);
+        return view("alumnos.listado", ["alumnos" => $alumno, "campos" => $campos]);
     }
 
     /**
@@ -25,7 +25,7 @@ class AlumnoController extends Controller
      */
     public function create()
     {
-        return view ("alumnos.create");
+        return view("alumnos.create");
         //
     }
 
@@ -58,6 +58,7 @@ class AlumnoController extends Controller
      */
     public function update(UpdateAlumnoRequest $request, Alumno $alumno)
     {
+        
         //
     }
 
@@ -66,7 +67,9 @@ class AlumnoController extends Controller
      */
     public function destroy(Alumno $alumno)
     {
-
-        //
+        $alumno->delete();
+        $alumnos = Alumno::all();
+        $campos = Schema::getColumnListing('alumnos');
+        return view("alumnos.listado", compact('alumnos', 'campos'));
     }
 }
