@@ -34,7 +34,18 @@ class AlumnoController extends Controller
      */
     public function store(StoreAlumnoRequest $request)
     {
-        //
+        try {
+            $validated = $request->validated();
+            
+            Alumno::create($validated);
+            
+            return redirect()->route('alumnos.index')
+                ->with('success', 'Alumno creado exitosamente');
+        } catch (\Exception $e) {
+            return back()
+                ->withInput()
+                ->with('error', 'Error al crear el alumno: ' . $e->getMessage());
+        }
     }
 
     /**
@@ -42,7 +53,7 @@ class AlumnoController extends Controller
      */
     public function show(Alumno $alumno)
     {
-        //
+        return view('alumnos.show', compact('alumno'));
     }
 
     /**
@@ -50,7 +61,7 @@ class AlumnoController extends Controller
      */
     public function edit(Alumno $alumno)
     {
-        //
+        return view('alumnos.edit', compact('alumno'));
     }
 
     /**
@@ -58,8 +69,18 @@ class AlumnoController extends Controller
      */
     public function update(UpdateAlumnoRequest $request, Alumno $alumno)
     {
-        
-        //
+        try {
+            $validated = $request->validated();
+            
+            $alumno->update($validated);
+            
+            return redirect()->route('alumnos.index')
+                ->with('success', 'Alumno actualizado exitosamente');
+        } catch (\Exception $e) {
+            return back()
+                ->withInput()
+                ->with('error', 'Error al actualizar el alumno: ' . $e->getMessage());
+        }
     }
 
     /**

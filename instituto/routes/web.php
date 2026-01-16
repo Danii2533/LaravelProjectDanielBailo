@@ -4,12 +4,15 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\ProyectoController;
+use App\Http\Controllers\LocaleController;
 
 //Route::get('/', function () {
 //    return view('welcome');
 //});
 
 Route::view('/', 'main')->name("main");
+
+Route::get('/locale/{locale}', [LocaleController::class, 'setLocale'])->name('locale.set');
 
 Route::view('/about', 'about');
 

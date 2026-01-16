@@ -7,12 +7,11 @@
   <div class="hero-overlay"></div>
   <div class="hero-content text-neutral-content text-center">
     <div class="max-w-md">
-      <h1 class="mb-5 text-5xl font-bold">Hello there</h1>
+      <h1 class="mb-5 text-5xl font-bold">{{ __('messages.hello') }}</h1>
       <p class="mb-5">
-        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-        quasi. In deleniti eaque aut repudiandae et a id nisi.
+        {{ __('messages.description') }}
       </p>
-      <button class="btn btn-primary">Get Started</button>
+      <button class="btn btn-primary">{{ __('messages.get_started') }}</button>
     </div>
   </div>
 </div>
@@ -25,10 +24,10 @@
         alt="Shoes" />
     </figure>
     <div class="card-body">
-      <h2 class="card-title">Listado de alumnos</h2>
+      <h2 class="card-title">{{ __('messages.student_list') }}</h2>
       <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
       <div class="card-actions justify-end">
-        <a href="alumnos"><button class="btn btn-primary">Ver listado</button></a>
+        <a href="alumnos"><button class="btn btn-primary">{{ __('messages.see_list') }}</button></a>
       </div>
     </div>
   </div>

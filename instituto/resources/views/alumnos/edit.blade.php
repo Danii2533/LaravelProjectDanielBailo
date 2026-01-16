@@ -3,14 +3,15 @@
         <div class="max-w-2xl mx-auto">
             <!-- Header -->
             <div class="mb-8">
-                <h1 class="text-3xl font-bold text-gray-900 mb-2">{{ __('messages.add_student') }}</h1>
-                <p class="text-gray-600">{{ __('messages.fill_student_info') }}</p>
+                <h1 class="text-3xl font-bold text-gray-900 mb-2">{{ __('messages.edit') }} {{ __('messages.student') }}</h1>
+                <p class="text-gray-600">{{ __('messages.update_student_info') }}</p>
             </div>
 
             <!-- Form Card -->
             <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                <form method="POST" action="{{ route('alumnos.store') }}" class="p-8">
+                <form method="POST" action="{{ route('alumnos.update', $alumno) }}" class="p-8">
                     @csrf
+                    @method('PUT')
 
                     <!-- First Name -->
                     <div class="mb-6">
@@ -20,7 +21,7 @@
                             class="block w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition" 
                             type="text" 
                             name="nombre" 
-                            :value="old('nombre')" 
+                            :value="old('nombre', $alumno->nombre)" 
                             required 
                             autofocus 
                             placeholder="Juan"
@@ -36,7 +37,7 @@
                             class="block w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition" 
                             type="text" 
                             name="apellidos" 
-                            :value="old('apellidos')" 
+                            :value="old('apellidos', $alumno->apellidos)" 
                             required 
                             placeholder="Pérez García"
                         />
@@ -51,7 +52,7 @@
                             class="block w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition" 
                             type="email" 
                             name="email" 
-                            :value="old('email')" 
+                            :value="old('email', $alumno->email)" 
                             required 
                             placeholder="juan@example.com"
                         />
@@ -66,7 +67,7 @@
                             class="block w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition" 
                             type="date" 
                             name="fecha_nacimiento" 
-                            :value="old('fecha_nacimiento')" 
+                            :value="old('fecha_nacimiento', $alumno->fecha_nacimiento)" 
                             required 
                         />
                         <x-input-error :messages="$errors->get('fecha_nacimiento')" class="mt-2 text-red-600" />
@@ -77,8 +78,8 @@
                         <a href="{{ route('alumnos.index') }}" class="inline-flex items-center px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition font-medium">
                             {{ __('messages.cancel') }}
                         </a>
-                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition duration-200">
-                            {{ __('messages.create') }}
+                        <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-lg transition duration-200">
+                            {{ __('messages.update') }}
                         </button>
                     </div>
                 </form>

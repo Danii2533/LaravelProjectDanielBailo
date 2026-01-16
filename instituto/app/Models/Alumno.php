@@ -10,5 +10,14 @@ class Alumno extends Model
     /** @use HasFactory<\Database\Factories\AlumnoFactory> */
     use HasFactory;
 
-    
+    protected $fillable = [
+        'nombre',
+        'apellidos',
+        'email',
+        'fecha_nacimiento',
+    ];
+
+    protected $casts = [
+        'fecha_nacimiento' => 'date',
+    ];
 }

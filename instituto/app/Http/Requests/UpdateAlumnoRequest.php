@@ -11,7 +11,7 @@ class UpdateAlumnoRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,10 @@ class UpdateAlumnoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nombre' => 'required|string|max:255',
+            'apellidos' => 'required|string|max:255',
+            'email' => 'required|email|unique:alumnos,email,' . $this->alumno->id,
+            'fecha_nacimiento' => 'required|date',
         ];
     }
 }
